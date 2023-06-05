@@ -1,0 +1,1 @@
+Compiler Warning: device/matrix_multi.cl:23: declaring global arguments 'outputC', 'inputA' and 'inputB' with no 'restrict' may lead to low performance for kernel 'simpleMultiply'
