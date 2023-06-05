@@ -23,7 +23,7 @@
 source /data/intel_fpga/devcloudLoginToolSetup.sh
 tools_setup -t A10DS
 
-cd ~/eece-6540-labs/Labs/lab1/matrix_multi
+
 
 # Check Arria 10 PAC card connectivity
 aocl diagnose
@@ -31,7 +31,9 @@ error_check
 
 # Running project in Emulation mode
 printf "\\n%s\\n" "Running in Emulation Mode:"
+cd matrix_multi
 aoc -march=emulator -v device/matrix_multi.cl -o bin/matrix_multi_emulation.aocx
+
 # Creating symbolic link to emulation .aocx
 ln -sf matrix_multi_emulation.aocx bin/matrix_multi.aocx
 make
