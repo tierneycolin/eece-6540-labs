@@ -50,7 +50,7 @@ typedef std::array<float, array_size> FloatArray;
 // Image Rotation in DPC++ on device:
 //************************************
 void ImageRotation(queue &q, float *image_in, float *image_out,
-    const size_t W, const size_t H, float sinTheta, float cosTheta)
+    const size_t H, const size_t W, float sinTheta, float cosTheta)
 {
     // We create buffers for the input and output data.
     buffer<float, 1> image_in_buf(image_in, range<1>(H*W));
@@ -62,7 +62,7 @@ void ImageRotation(queue &q, float *image_in, float *image_out,
     //}
 
     // Create the range object for the pixel data.
-    range<2> num_items{H, W};
+    range<2> num_items{W, H};
 
     // Submit a command group to the queue by a lambda function that contains the
     // data access permission and device computation (kernel).
