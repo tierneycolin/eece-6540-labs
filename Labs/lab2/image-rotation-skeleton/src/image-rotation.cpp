@@ -62,7 +62,7 @@ void ImageRotation(queue &q, float *image_in, float *image_out,
     //}
 
     // Create the range object for the pixel data.
-    range<2> num_items{W, H};
+    range<2> num_items{H, W};
 
     // Submit a command group to the queue by a lambda function that contains the
     // data access permission and device computation (kernel).
