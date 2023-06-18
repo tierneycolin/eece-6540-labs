@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/u192806/eece-6540-labs/Labs/lab3/MonteCarloPi/src/monte_carlo_pi.cpp
+sycl/sycl.hpp
+-
+iostream
+-
+math.h
+-
+stdlib.h
+-
+time.h
+-
+dpc_common.hpp
+/home/u192806/eece-6540-labs/Labs/lab3/MonteCarloPi/src/dpc_common.hpp
+monte_carlo_pi.hpp
+/home/u192806/eece-6540-labs/Labs/lab3/MonteCarloPi/src/monte_carlo_pi.hpp
+stb/stb_image.h
+/home/u192806/eece-6540-labs/Labs/lab3/MonteCarloPi/src/stb/stb_image.h
+stb/stb_image_write.h
+/home/u192806/eece-6540-labs/Labs/lab3/MonteCarloPi/src/stb/stb_image_write.h
+
+/home/u192806/eece-6540-labs/Labs/lab3/MonteCarloPi/src/monte_carlo_pi.hpp
+
