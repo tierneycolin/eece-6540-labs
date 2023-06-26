@@ -27,21 +27,23 @@ int main() {
     
   //# STEP 1 : set fixed sub_group size of value S in the kernel below
 
-  q.parallel_for(nd_range<1>(N, B), [=](nd_item<1> item) {
+  q.parallel_for(nd_range<1>(N, B), [=](nd_item<1> item)[[intel::reqd_sub_group_size(S)]] {
     auto sg = item.get_sub_group();
     auto i = item.get_global_id(0);
 
     //# STEP 2: Add all elements in sub_group using sub_group reduce
       
     //# YOUR CODE GOES HERE 
-
+    //# Add all elements in sub_group using sub_group algorithm
+    int result = reduce_over_group(sg, data[i], plus<>());
 
 
       
     //# STEP 3 : save each sub-group sum to sg_data array
     
     //# YOUR CODE GOES HERE 
-      
+    if (i % S == 0)
+      sg_data[i/S] = result;
 
 
   }).wait();
@@ -54,7 +56,7 @@ int main() {
   int sum = 0;
 
   //# YOUR CODE GOES HERE 
-
+  for (int i = 0; i < N/S; i++) sum += sg_data[i];
  
 
   std::cout << "\nSum = " << sum << "\n";

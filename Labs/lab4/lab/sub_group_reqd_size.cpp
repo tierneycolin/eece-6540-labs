@@ -28,7 +28,7 @@ int main() {
 
     //# nd-range kernel with user specified sub_group size
     //# TODO: try changing to a different sub_group size
-    h.parallel_for(nd_range<1>(N, B), [=](nd_item<1> item)[[intel::reqd_sub_group_size(8)]] {
+    h.parallel_for(nd_range<1>(N, B), [=](nd_item<1> item)[[intel::reqd_sub_group_size(32)]] {
       //# get sub_group handle
       auto sg = item.get_sub_group();
 
